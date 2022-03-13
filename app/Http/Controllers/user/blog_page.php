@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class blog_page extends Controller
 {
     function index(){
-        return view('blog_page.index');
+        return view('user.blog_page.index');
     }
 }

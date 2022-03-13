@@ -26,3 +26,7 @@ Route::get('/thanh-toan', [checkout_page::class,'index']);
 Route::get('/shop', [shop_page::class,'index']);
 Route::get('/lien-he', [contact_page::class,'index']);
 
+Route::get('/admin',function(){
+    return view('admin.table.index');
+});
+
