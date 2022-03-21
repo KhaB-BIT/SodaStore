@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user.layout')
 @section('title','Thanh toán')
 @section('content')
     @include('user.checkout_page.checkout')

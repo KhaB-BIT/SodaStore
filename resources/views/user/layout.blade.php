@@ -8,10 +8,10 @@
     <title>@yield('title')</title>
 </head>
 <body class="animsition">
-    @include('navigation')
-    @include('cart')
+    @include('user.navigation')
+    @include('user.cart')
     @yield('content')
-    @include('footer')
+    @include('user.footer')
     <script src="/js/app.js"></script>
 </body>
 </html>

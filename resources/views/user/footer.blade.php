@@ -61,7 +61,7 @@
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                    Quý khách có thể ghé thăm cửa hàng của chúng tôi tại 279 Nguyễn Tri Phương, phường 5, Quận 10, HCM
                 </p>
 
                 <div class="p-t-27">
