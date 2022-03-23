@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\user\about_page;
 use App\Http\Controllers\user\blog_page;
 use App\Http\Controllers\user\checkout_page;
@@ -26,7 +27,9 @@ Route::get('/thanh-toan', [checkout_page::class,'index']);
 Route::get('/shop', [shop_page::class,'index']);
 Route::get('/lien-he', [contact_page::class,'index']);
 
-Route::get('/admin',function(){
-    return view('admin.table.index');
+Route::prefix('/admin')->group(function(){
+    Route::get('/product',[ProductController::class,'index'])->name('view_product');
+    Route::get('/product/form',[ProductController::class,'form'])->name('form_product');
+    Route::post('/product/add')->name('add_product');
 });
 
