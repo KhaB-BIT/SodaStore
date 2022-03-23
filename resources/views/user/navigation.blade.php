@@ -6,7 +6,7 @@
         <div class="top-bar">
             <div class="content-topbar flex-sb-m h-full container">
                 <div class="left-top-bar">
-                    Miễn phí giao hàng trên toàn quốc
+                    Miễn phí giao hàng trong phạm vi 10km
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
@@ -105,7 +105,7 @@
         <ul class="topbar-mobile">
             <li>
                 <div class="left-top-bar">
-                    Miễn phí giao hàng trên toàn quốc
+                    Miễn phí giao hàng trong phạm vi 10km
                 </div>
             </li>
 
