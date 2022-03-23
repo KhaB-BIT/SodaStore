@@ -5,20 +5,20 @@
             <input type="checkbox" class="flat" name="table_records">
         </td>
         <td class=" ">{{$item->id}}</td>
-        <td class=" ">{{$item->category_id}}</td>
+        <td class=" ">{{$item->email}}</td>
         <td class=" ">{{$item->name}}</td>
-        <td class=" ">{{$item->desc}}</td>
-        <td class=" ">{{$item->short_desc}}</td>
-        <td class="">{{$item->image}}</td>
-        <td class=""><b>{{$item->price}}</b></td>
+        <td class=" ">{{$item->gender}}</td>
+        <td class=" ">{{$item->address}}</td>
+        <td class="">{{$item->phone}}</td>
+        <td class="">{{$item->created_at}}</td>
         <td class="">
-            <form action="{{route('delete_product',['id'=>$item->id])}}" method="POST">
+            <form action="{{route('delete_customer',['id'=>$item->id])}}" method="POST">
                 <button class="btn btn-danger" type="submit">Delete</button>
                 @method('delete')
                 @csrf
             </form>
         </td>
-        <td class="last"><a class="btn btn-primary" href="{{route('item_product',['id'=>$item->id])}}">View</a>
+        <td class="last"><a class="btn btn-primary" href="{{route('item_customer',['id'=>$item->id])}}">View</a>
         </td>
     </tr>
 @endforeach
