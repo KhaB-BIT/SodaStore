@@ -23,54 +23,50 @@
         <div class="x_panel">
           <div class="x_content">
             <br />
-            <form class="form-horizontal form-label-left" method="POST" action="{{isset($data)?route('update_product',$data->id):route('addfunc_product')}}">
+            <form class="form-horizontal form-label-left" method="POST" action="{{isset($data)?route('update_customer',$data->id):route('addfunc_customer')}}">
 
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Name</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input name='email' type="text" class="form-control" placeholder="Email" value="{{isset($data)?$data->email:""}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input name='name' type="text" class="form-control" placeholder="Name" value="{{isset($data)?$data->name:""}}">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span>
-                </label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <textarea name="desc" class="form-control" rows="3" placeholder='Description'>{{isset($data)?$data->desc:""}}</textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Short Description</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name="short_desc" type="text" class="form-control" placeholder="Short Description" value="{{isset($data)?$data->short_desc:""}}">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Image Url</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name="image" type="url" class="form-control" placeholder="Image Url" value="{{isset($data)?$data->image:""}}">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Price</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name="price" type="number" class="form-control" placeholder="Price" value="{{isset($data)?$data->price:""}}">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <select name="category_id" class="form-control">
+                  <select name="gender" class="form-control">
                     <option disabled>Choose option</option>
-                    @php
-                        $categorySelect = -1;
-                        if(isset($data)) $categorySelect = $data->category_id;
-                    @endphp
-                    @foreach ($categories as $item)
-                      <option value="{{$item->id}}" {{$categorySelect == $item->id?"selected":""}}>{{$item->name}}</option>
-                    @endforeach
+                    <option value="0">Nam</option>
+                    <option value="1">Nữ</option>
                   </select>
                 </div>
               </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input name="address" type="text" class="form-control" placeholder="Address" value="{{isset($data)?$data->address:""}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input name="phone" type="tel" class="form-control" placeholder="Phone number" value="{{isset($data)?"0".$data->phone:""}}">
+                </div>
+              </div>
+              @if (isset($data))
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Created</label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input name="" type="text" class="form-control" placeholder="Price" value="{{$data->created_at}}">
+                  </div>
+                </div>
+              @endif
               {{-- PUT METHOD AND TOKEN --}}
               @if(isset($data))
                 <input type="hidden" name="_method" value="PUT">

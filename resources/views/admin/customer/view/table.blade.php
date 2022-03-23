@@ -51,12 +51,12 @@
                       <input type="checkbox" id="check-all" class="flat">
                     </th>
                     <th class="column-title">ID </th>
-                    <th class="column-title">Category</th>
-                    <th class="column-title">Product name</th>
-                    <th class="column-title">Description</th>
-                    <th class="column-title">Short Description</th>
-                    <th class="column-title">Image</th>
-                    <th class="column-title">Price</th>
+                    <th class="column-title">Email</th>
+                    <th class="column-title">Fullname</th>
+                    <th class="column-title">Gender</th>
+                    <th class="column-title">Address</th>
+                    <th class="column-title">Phone</th>
+                    <th class="column-title">Created</th>
                     <th class="column-title"></th>
                     <th class="column-title no-link last"></th>
                     <th class="bulk-actions" colspan="7">
@@ -66,7 +66,7 @@
                 </thead>
 
                 <tbody>
-                  @include('admin.product.view.product_item')
+                  @include('admin.customer.view.customer_item')
                 </tbody>
               </table>
             </div>
