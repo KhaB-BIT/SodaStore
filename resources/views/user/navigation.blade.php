@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                    <a href="/login" class="flex-c-m trans-04 p-lr-25">
                         Đăng nhập
                     </a>
                 </div>
