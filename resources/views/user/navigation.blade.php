@@ -42,11 +42,11 @@
                         </li>
 
                         <li>
-                            <a href="/ve-chung-toi">Về chúng tôi</a>
+                            <a href="/lien-he">Liên hệ</a>
                         </li>
 
                         <li>
-                            <a href="/lien-he">Liên hệ</a>
+                            <a href="/thanh-toan">Thanh toán</a>
                         </li>
                     </ul>
                 </div>	
@@ -132,11 +132,11 @@
             </li>
 
             <li>
-                <a href="/ve-chung-toi">Về chúng tôi</a>
-            </li>
-
-            <li>
                 <a href="/lien-he">Liên hệ</a>
+            </li>
+            
+            <li>
+                <a href="/thanh-toan">Thanh toán</a>
             </li>
         </ul>
     </div>
