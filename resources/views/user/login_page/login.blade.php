@@ -1,7 +1,7 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-04.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			SIGN IN
+			ĐĂNG NHẬP & ĐĂNG KÝ
 		</h2>
 	</section>	
 
@@ -13,57 +13,56 @@
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 					<form>
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
-							LOGIN
+							ĐĂNG NHẬP
 						</h4>
 
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="username" placeholder="Username">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="username" placeholder="Tên đăng nhập">
                             <img class="how-pos4 pointer-none" src="images/icons/icon-user.png" alt="ICON">
 						</div>
 
 						<div class="bor8 m-b-20 how-pos4-parent" >
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="password" placeholder="Password"></input>
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="password" placeholder="Mật khẩu">
                             <img class="how-pos4 pointer-none" src="images/icons/icon-key.png" alt="ICON">
 						</div>
 
-					    <input type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="LOGIN" />
+					    <input type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="ĐĂNG NHẬP" />
                      
 					</form>
 				</div>
 
 				<div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
-                <form>
-                        <h4 class="mtext-105 cl2 txt-center" style="font-weight:bold" > 
-							OR
-						</h4>
+                	<form>
+                        <h6 class="mtext-105 cl2 txt-center" style="font-size: 20px"> 
+							Nếu chưa có tài khoản thì...
+						</h6>
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
-                        REGISTRATION
+                        ĐĂNG KÝ
 						</h4>
 
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="res_username" placeholder="Username">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="res_username" placeholder="Tên đăng nhập">
                             <img class="how-pos4 pointer-none" src="images/icons/icon-user.png" alt="ICON">
 						</div>
 
                         <div class="bor8 m-b-20 how-pos4-parent" >
-                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="email" name="email" placeholder="Your Email Address">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="email" name="email" placeholder="Địa chỉ email">
 							<img class="how-pos4 pointer-none" src="images/icons/icon-email2.jpg" alt="ICON">
 						</div>
 
 						<div class="bor8 m-b-20 how-pos4-parent" >
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="res_password" placeholder="Password"></input>
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="res_password" placeholder="Mật khẩu">
                             <img class="how-pos4 pointer-none" src="images/icons/icon-key.png" alt="ICON">
 						</div>
 
                         <div class="bor8 m-b-20 how-pos4-parent" >
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="reres_password" placeholder="Confirm Password"></input>
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="reres_password" placeholder="Nhập lại mật khẩu">
                             <img class="how-pos4 pointer-none" src="images/icons/icon-key.png" alt="ICON">
 						</div>
 
-					    <input type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="REGISTRATION" />
+					    <input type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="ĐĂNG KÝ" />
                      
 					</form>
-
 				</div>
 			</div>
 		</div>
