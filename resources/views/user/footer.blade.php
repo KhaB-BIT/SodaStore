@@ -2,62 +2,41 @@
 <footer class="bg3 p-t-75 p-b-32">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-4 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Categories
+                    Từ khóa tìm kiếm
                 </h4>
 
                 <ul>
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Women
+                            Phụ nữ
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Men
+                            Nam giới
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shoes
+                            Giày - dép
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Watches
+                            Đồng hồ
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-4 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Help
-                </h4>
-
-                <ul>
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Về chúng tôi
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Liên hệ
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="col-sm-6 col-lg-3 p-b-50">
-                <h4 class="stext-301 cl0 p-b-30">
-                    GET IN TOUCH
+                    Địa chỉ cửa hàng
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
@@ -65,23 +44,23 @@
                 </p>
 
                 <div class="p-t-27">
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a href="https://www.facebook.com" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-facebook"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a href="https://www.instagram.com" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-instagram"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a href="https://www.pinterest.com" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-pinterest-p"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-4 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Newsletter
+                    Nhận thông báo qua email
                 </h4>
 
                 <form>
@@ -92,7 +71,7 @@
 
                     <div class="p-t-18">
                         <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
+                            Đăng ký
                         </button>
                     </div>
                 </form>
@@ -123,17 +102,17 @@
             </div>
 
             <p class="stext-107 cl6 txt-center">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by SODA Team
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        
+                Được phát triển <i class="fa fa-heart-o" aria-hidden="true"></i> bởi SODA Team
 
             </p>
         </div>
     </div>
 </footer>
-	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn">
-		<span class="symbol-btn-back-to-top">
-			<i class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
+
+<!-- Back to top -->
+<div class="btn-back-to-top" id="myBtn">
+    <span class="symbol-btn-back-to-top">
+        <i class="zmdi zmdi-chevron-up"></i>
+    </span>
+</div>

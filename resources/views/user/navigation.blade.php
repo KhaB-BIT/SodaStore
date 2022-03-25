@@ -6,11 +6,11 @@
         <div class="top-bar">
             <div class="content-topbar flex-sb-m h-full container">
                 <div class="left-top-bar">
-                    Miễn phí giao hàng trên toàn quốc
+                    Miễn phí giao hàng trong phạm vi 10km
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                    <a href="/login" class="flex-c-m trans-04 p-lr-25">
                         Đăng nhập
                     </a>
                 </div>
@@ -42,11 +42,11 @@
                         </li>
 
                         <li>
-                            <a href="/ve-chung-toi">Về chúng tôi</a>
+                            <a href="/lien-he">Liên hệ</a>
                         </li>
 
                         <li>
-                            <a href="/lien-he">Liên hệ</a>
+                            <a href="/thanh-toan">Thanh toán</a>
                         </li>
                     </ul>
                 </div>	
@@ -105,7 +105,7 @@
         <ul class="topbar-mobile">
             <li>
                 <div class="left-top-bar">
-                    Miễn phí giao hàng trên toàn quốc
+                    Miễn phí giao hàng trong phạm vi 10km
                 </div>
             </li>
 
@@ -132,11 +132,11 @@
             </li>
 
             <li>
-                <a href="/ve-chung-toi">Về chúng tôi</a>
-            </li>
-
-            <li>
                 <a href="/lien-he">Liên hệ</a>
+            </li>
+            
+            <li>
+                <a href="/thanh-toan">Thanh toán</a>
             </li>
         </ul>
     </div>
