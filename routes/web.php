@@ -2,13 +2,13 @@
 
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductVariantController;
 use App\Http\Controllers\user\about_page;
 use App\Http\Controllers\user\blog_page;
 use App\Http\Controllers\user\checkout_page;
 use App\Http\Controllers\user\contact_page;
 use App\Http\Controllers\user\home_page;
 use App\Http\Controllers\user\shop_page;
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +37,11 @@ Route::prefix('/admin')->group(function(){
         Route::get('/add',[ProductController::class,'add'])->name('add_product');
         Route::post('/add',[ProductController::class,'add'])->name('addfunc_product');
         Route::delete('/delete/{id}',[ProductController::class,'delete'])->name('delete_product');
+    });
+
+    Route::prefix('/variant')->group(function(){
+        Route::get('/{product_id}',[ProductVariantController::class,'index']);
+        Route::get('/{product_id}/{variant_id}');
     });
 
     Route::prefix('/customer')->group(function(){

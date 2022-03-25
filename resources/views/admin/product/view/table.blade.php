@@ -1,19 +1,14 @@
 <!-- page content -->
 <div class="right_col" role="main">
   <div class="">
-    <div class="page-title">
+    <div class="page-title" style="margin-bottom: 50px">
       <div class="title_left">
         <h3>Tables <small>Some examples to get you started</small></h3>
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div>
+          <a class="btn btn-success" href="{{route('add_customer')}}" style="float: right;"><span><i class="fa fa-plus" style="margin-right: 10px"></i></span>Add new</a>
         </div>
       </div>
     </div>
