@@ -23,7 +23,7 @@ class ProductVariantController extends Controller
         if(request()->isMethod('GET')){
             return view('admin.customer.add.index');
         }else{
-            ProductVariant::create([
+            ProductVariant::create([ 
                 'email'=>request()->email,
                 'name'=>request()->name,
                 'gender'=>request()->gender,
