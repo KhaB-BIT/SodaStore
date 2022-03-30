@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\admin\CheckoutController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductVariantController;
+use App\Http\Controllers\admin\SellingController;
 use App\Http\Controllers\user\about_page;
 use App\Http\Controllers\user\blog_page;
 use App\Http\Controllers\user\checkout_page;
@@ -10,7 +12,7 @@ use App\Http\Controllers\user\contact_page;
 use App\Http\Controllers\user\home_page;
 use App\Http\Controllers\user\shop_page;
 use App\Http\Controllers\user\login_page;
-use App\Models\Product;
+use App\Models\ProductVariant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,11 +30,23 @@ Route::get('/', [home_page::class,'index']);
 Route::get('/ve-chung-toi', [about_page::class,'index']);
 Route::get('/blog', [blog_page::class,'index']);
 Route::get('/thanh-toan', [checkout_page::class,'index']);
-Route::get('/shop', [shop_page::class,'index']);
+Route::prefix('/shop')->group(function(){
+    Route::get('', [shop_page::class,'index']);
+    Route::get('/show/{id}',[shop_page::class, 'show'])->where(['id'=>'[0-9]+'])->name('show_shop_item');
+});
 Route::get('/lien-he', [contact_page::class,'index']);
 Route::get('/login',[login_page::class,'index']);
 
 Route::prefix('/admin')->group(function(){
+    Route::get('/',[ProductController::class,'index'])->name('list_product');
+
+    Route::get('/selling',[SellingController::class,'index'])->name('list_selling');
+    Route::get('/selling/addtocart/{id}/{quantity}/{mode?}',[SellingController::class,'addToCart'])->name('addTocart_selling');
+
+
+    Route::get('/checkout',[CheckoutController::class,'index'])->name('list_checkout');
+
+    
     Route::prefix('/product')->group(function(){
         Route::get('/',[ProductController::class,'index'])->name('list_product');
         Route::get('/detail/{id}',[ProductController::class,'view'])->name('item_product');
@@ -43,8 +57,13 @@ Route::prefix('/admin')->group(function(){
     });
 
     Route::prefix('/variant')->group(function(){
-        Route::get('/{product_id}',[ProductVariantController::class,'index']);
-        Route::get('/{product_id}/{variant_id}');
+        Route::get('/view/{product_id}',[ProductVariantController::class,'index'])->where(['id'=>'[0-9]+'])->name('list_variant');
+        Route::get('/view/{product_id}/{variant_id}',[ProductVariantController::class,'view'])->where(['id'=>'[0-9]+', 'variant_id'=>'[0-9]+'])->name('item_variant');
+        Route::get('/add/{id}',[ProductVariantController::class,'add'])->where(['id'=>'[0-9]+'])->name('add_variant');
+        Route::post('/add/{id}',[ProductVariantController::class,'add'])->where(['id'=>'[0-9]+'])->name('addfunc_variant');
+        Route::put('/upload/{id}')->where(['id'=>'[0-9]+'])->name('update_variant');
+        Route::delete('/delete/{id}',[ProductVariantController::class,'delete'])->where(['id'=>'[0-9]+'])->name('delete_variant');
+
     });
 
     Route::prefix('/customer')->group(function(){
@@ -54,5 +73,6 @@ Route::prefix('/admin')->group(function(){
         Route::get('/add',[CustomerController::class,'add'])->name('add_customer');
         Route::post('/add',[CustomerController::class,'add'])->name('addfunc_customer');
         Route::delete('/delete/{id}',[CustomerController::class,'delete'])->name('delete_customer');
+        Route::get('/search/{phone}',[CustomerController::class,'search'])->name('search_customer');
     });
 });

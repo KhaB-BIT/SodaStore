@@ -1,12 +1,12 @@
-<div class="bg0 m-t-23 p-b-140">
+<div class="bg0 m-t-23 p-b-140" style="padding: 20px 50px">
     <div class="container">
         <div class="flex-w flex-sb-m p-b-52">
             
             {{-- show some category --}}
-            @include('user.shop_page.shop-product-category')
+            @include('admin.selling.view.shop-product-category')
 
             {{-- filter and search --}}
-            @include('user.shop_page.shop-product-fillterAndSearch')
+            @include('admin.selling.view.shop-product-fillterAndSearch')
 
         </div>
 
@@ -20,7 +20,7 @@
                         <img src="{{$item->image}}" alt="IMG-PRODUCT">
             
                         <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" data-url="{{route('show_shop_item',$item->id)}}">
-                            Xem chi tiết
+                            Add to cart
                         </a>
                     </div>
             
@@ -34,13 +34,6 @@
                                 {{number_format($item->price)}} VND
                             </span>
                         </div>
-            
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -48,6 +41,6 @@
         </div>
 
         {{-- see more --}}
-        @include('user.shop_page.shop-product-loadmore')
+        @include('admin.selling.view.shop-product-loadmore')
     </div>
 </div>

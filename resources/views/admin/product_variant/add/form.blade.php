@@ -23,52 +23,39 @@
         <div class="x_panel">
           <div class="x_content">
             <br />
-            <form class="form-horizontal form-label-left" method="POST" action="{{isset($data)?route('update_product',$data->id):route('addfunc_product')}}">
-
+            <form class="form-horizontal form-label-left" method="POST" action="{{isset($data)?route('update_variant',$data->id):route('addfunc_variant',$id)}}">
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Name</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name='name' type="text" class="form-control" placeholder="Name" value="{{isset($data)?$data->name:""}}">
+                  <input name='product_id' type="number" class="form-control" placeholder="Product ID" value="{{isset($data)?$data->product_id:$id}}" readonly>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Description <span class="required">*</span>
-                </label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Size</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <textarea name="desc" class="form-control" rows="3" placeholder='Description'>{{isset($data)?$data->desc:""}}</textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Short Description</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name="short_desc" type="text" class="form-control" placeholder="Short Description" value="{{isset($data)?$data->short_desc:""}}">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Image Url</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name="image" type="url" class="form-control" placeholder="Image Url" value="{{isset($data)?$data->image:""}}">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Price</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name="price" type="number" class="form-control" placeholder="Price" value="{{isset($data)?$data->price:""}}">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <select name="category_id" class="form-control">
-                    <option disabled>Choose option</option>
+                  <select name="size" class="form-control">
+                    <option selected disabled>Choose option</option>
                     @php
-                        $categorySelect = -1;
-                        if(isset($data)) $categorySelect = $data->category_id;
+                        $sizeSelect = -1;
+                        if(isset($data)) $sizeSelect = $data->size;
+                        $sizeMap = ['XS','S','M','L','XL','XXL','XXXL']
                     @endphp
-                    @foreach ($categories as $item)
-                      <option value="{{$item->id}}" {{$categorySelect == $item->id?"selected":""}}>{{$item->name}}</option>
+                    @foreach ($sizeMap as $item)
+                      <option value="{{$item}}" {{$sizeSelect == $item?"selected":""}}>{{$item}}</option>
                     @endforeach
                   </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input name='color' type="text" class="form-control" placeholder="Color" value="{{isset($data)?$data->color:""}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input name='quantity' type="number" class="form-control" placeholder="Quantity" value="{{isset($data)?$data->quantity:""}}">
                 </div>
               </div>
               {{-- PUT METHOD AND TOKEN --}}

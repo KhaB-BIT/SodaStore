@@ -5,7 +5,7 @@
 
     <div class="size-204 respon6-next">
         <div class="rs1-select2 bor8 bg0">
-            <select class="js-select2" name="time" id="modal_product_size">
+            <select class="js-select2" name="time" id="modal_product_size1">
                 <option selected disabled>Chọn kích thước</option>
                 <option value="S">Size S</option>
                 <option value="M">Size M</option>

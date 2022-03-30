@@ -271,12 +271,70 @@
     $('.js-show-modal1').on('click',function(e){
         e.preventDefault();
         $('.js-modal1').addClass('show-modal1');
+        var url = $(this).attr('data-url');
+        $.ajax({
+            type: 'get',
+            url: url,
+            success: function(response){
+                $('#modal_product_name').text(response.data.name);
+                $('#modal_product_desc').text(response.data.desc);
+                $('#modal_product_price').text(separator(response.data.price)+" VND");
+
+                const check = document.createElement('div');
+                check.classList.add('check-modal-image');
+                const modalImage = document.getElementById('modal_product_image'); 
+                modalImage.innerHTML = `
+                <div class="item-slick3" data-thumb="${response.data.image}">
+                    <div class="wrap-pic-w pos-relative">
+                        <img src="${response.data.image}" alt="IMG-PRODUCT">
+                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${response.data.image}">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
+                </div>`;
+                // Choose Size and Color
+                $('#modal_product_size').on('change', function() {
+                    console.log(123);
+                    const boxSize = document.getElementById('modal_product_size');
+                    var selectedSize = boxSize.options[boxSize.selectedIndex].value;
+                    var variantData = response.variant;
+                    const boxColor = document.getElementById('modal_product_color');
+                    boxColor.innerHTML = `<option selected disabled>Chọn màu sắc</option>`;
+                    variantData.forEach(function(item){
+                        if(item.size == selectedSize){
+                            boxColor.innerHTML = `<option value="${item.color}">${item.color}</option>`;
+                        }
+                    })
+                });
+            
+            },
+            error: function(jqXHR, textStatus, errorThrown){}
+        });
     });
 
     $('.js-hide-modal1').on('click',function(){
         $('.js-modal1').removeClass('show-modal1');
     });
 
+    function separator(numb) {
+        var str = numb.toString().split(".");
+        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return str.join(".");
+    }
 
 
+    // -------------- ADD TO CARD ----------------//
+    // $('#modal_product_add').on('click',function(){
+    //     const boxColor = document.getElementById('modal_product_size');
+    //     var variantID = boxColor.options[boxSize.selectedIndex].value;
+    //     var quantity = $('#modal_product_quantity').value;
+    //     $.ajax({
+    //         type: 'get',
+    //         url: window.location.hostname + `admin/selling/addtocard/${variantID}/${quantity}`,
+    //         success: function(response){
+    //             alert(response.status);
+    //         }
+
+    //     });
+    // })
 })(jQuery);

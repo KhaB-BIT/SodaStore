@@ -4,7 +4,7 @@
     <div class="container">
         <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
             <button class="how-pos3 hov3 trans-04 js-hide-modal1">
-                <img src="images/icons/icon-close.png" alt="CLOSE">
+                <img src="/images/icons/icon-close.png" alt="CLOSE">
             </button>
 
             <div class="row">
@@ -37,11 +37,11 @@
                         
                         <div class="p-t-33">
                             {{-- choose size of product --}}
-                            @include('user.shop_page.shop-modal-chooseSize')
+                            @include('admin.selling.view.shop-modal-chooseSize')
                             {{-- choose color of product --}}
-                            @include('user.shop_page.shop-modal-chooseColor')
+                            @include('admin.selling.view.shop-modal-chooseColor')
                             {{-- choose quantity and add to card --}}
-                            @include('user.shop_page.shop-modal-quantity')	
+                            @include('admin.selling.view.shop-modal-quantity')	
                         </div>
 
                     </div>

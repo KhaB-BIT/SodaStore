@@ -8,7 +8,7 @@
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <a class="btn btn-success" href="{{route('add_customer')}}" style="float: right;"><span><i class="fa fa-plus" style="margin-right: 10px"></i></span>Add new</a>
+          <a class="btn btn-success" href="{{route('add_product')}}" style="float: right;"><span><i class="fa fa-plus" style="margin-right: 10px"></i></span>Add new</a>
         </div>
       </div>
     </div>

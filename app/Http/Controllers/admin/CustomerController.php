@@ -47,4 +47,9 @@ class CustomerController extends Controller
         Customer::find($id)->delete();
         return redirect(route('list_customer'));
     }
+    function search($phone){
+        return response()->json(
+            ['data'=>Customer::whereRaw('phone = ?',$phone)->get()]
+        );
+    }
 }

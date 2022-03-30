@@ -71,6 +71,14 @@
                   </select>
                 </div>
               </div>
+              <div class="form-group">
+                @if (isset($data))
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                  <div class="col-md-9 col-sm-9 col-xs-12" style="text-align:center;">
+                    <a class="btn btn-danger" href="{{route('list_variant',['product_id'=>$data->id])}}">Add variant</a>
+                  </div>
+                @endif
+              </div>
               {{-- PUT METHOD AND TOKEN --}}
               @if(isset($data))
                 <input type="hidden" name="_method" value="PUT">
