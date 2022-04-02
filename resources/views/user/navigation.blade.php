@@ -9,11 +9,11 @@
                     Miễn phí giao hàng trong phạm vi 10km
                 </div>
 
-                <div class="right-top-bar flex-w h-full">
-                    <a href="/login" class="flex-c-m trans-04 p-lr-25">
+                {{-- <div class="right-top-bar flex-w h-full">
+                    <a href="{{route('admin_login')}}" class="flex-c-m trans-04 p-lr-25">
                         Đăng nhập
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
 

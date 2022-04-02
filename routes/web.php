@@ -45,6 +45,8 @@ Route::get('/login',[login_page::class,'index']);
 
 Route::get('admin/login',[LoginController::class, 'index'])->name('admin_login');
 Route::post('admin/login',[LoginController::class,'process'])->name('admin_loginFunc');
+Route::get('admin/logout',[LoginController::class,'logout'])->name('admin_logout');
+
 
 
 Route::prefix('/admin')->middleware('AdminPermission')->group(function(){

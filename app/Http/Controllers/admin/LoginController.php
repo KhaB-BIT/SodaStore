@@ -20,4 +20,8 @@ class LoginController extends Controller
         }
         return redirect(route('admin'));
     }
+    function logout(){
+        session()->forget('admin');
+        return redirect(route('admin_login'));
+    }
 }
