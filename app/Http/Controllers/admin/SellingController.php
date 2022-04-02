@@ -21,22 +21,30 @@ class SellingController extends Controller
         return response()->json(['data'=>$data, 'variant'=>$variant],200);
     }
     function addToCart($id, $quantity, $mode=0){
-        if(session()->has('cart')){
-            $data = session('cart');
-            $check = true;
-            foreach($data as $key => $item){
-                if($item["variant"] == $id){
-                    if($mode == 1){
-                        $data[$key]["quantity"] = $quantity;
+        $itemVariant = ProductVariant::find($id);
+        if($itemVariant == null) return response()->json(['status'=>'Please choose SIZE and COLOR']);
+        else{
+            if(session()->has('cart')){
+                $data = session('cart');
+                $check = true;
+                foreach($data as $key => $item){
+                    if($item["variant"] == $id){
+                        if($mode == 1){
+                            if($itemVariant->quantity < $quantity) $data[$key]["quantity"] = $itemVariant->quantity;
+                            else $data[$key]["quantity"] = $quantity;
+                        }
+                        else{
+                            if($itemVariant->quantity < $data[$key]["quantity"] + $quantity) $data[$key]["quantity"] = $itemVariant->quantity;
+                            else $data[$key]["quantity"] = $data[$key]["quantity"] + $quantity;
+                        }
+                        $check = false;
                     }
-                    else $data[$key]["quantity"] = $data[$key]["quantity"] + $quantity;
-                    $check = false;
                 }
+                if($check) $data[] = ["variant"=>$id, "quantity"=>$quantity];
+                session(['cart'=>$data]);
+                return response()->json(['status'=>'ADDED TO CARD']);
             }
-            if($check) $data[] = ["variant"=>$id, "quantity"=>$quantity];
-            session(['cart'=>$data]);
-            return session('cart');
+            else session(["cart"=>[['variant'=>$id, 'quantity'=>$quantity]]]);
         }
-        else session(["cart"=>[['variant'=>$id, 'quantity'=>$quantity]]]);
     }
 }

@@ -99,11 +99,11 @@
         $(this).prev().val(changeCart(idCart, numProduct + 1, numProduct));        
     });
 
-    $('#admin_cart_quantity').on('change',function(){
-        var numProduct = $(this).val();
-        var idCart = $('#admin_cart_quantity').attr('data-id');
-        changeCart(idCart, numProduct, numProduct);
-    })
+    // $('#admin_cart_quantity').on('change',function(){
+    //     var numProduct = $(this).val();
+    //     var idCart = $('#admin_cart_quantity').attr('data-id');
+    //     changeCart(idCart, numProduct, numProduct);
+    // })
 
     function changeCart(variantID,quantity,old) {
         var anw = old;
@@ -148,16 +148,25 @@
                         </a>
                     </div>
                 </div>`;
+
+                const boxColor = document.getElementById('modal_product_color1');
+                boxColor.innerHTML = "<option selected disabled>Chọn màu sắc</option>";
+                const boxSize = document.getElementById('modal_product_size1');
+                boxSize.innerHTML = `<option selected disabled>Chọn kích thước</option>
+                <option value="S">Size S</option>
+                <option value="M">Size M</option>
+                <option value="L">Size L</option>
+                <option value="XL">Size XL</option>`
+
+
                 // Choose Size and Color
                 $('#modal_product_size1').on('change', function () {
-                    const boxSize = document.getElementById('modal_product_size1');
                     var selectedSize = boxSize.options[boxSize.selectedIndex].value;
                     var variantData = response.variant;
-                    const boxColor = document.getElementById('modal_product_color1');
                     boxColor.innerHTML = `<option selected disabled>Chọn màu sắc</option>`;
                     variantData.forEach(function (item) {
                         if (item.size == selectedSize) {
-                            boxColor.innerHTML = `<option value="${item.id}">${item.color}</option>`;
+                            boxColor.innerHTML += `<option value="${item.id}">${item.color}</option>`;
                         }
                     })
                 });
@@ -188,7 +197,7 @@
             type: 'get',
             url: `/admin/selling/addtocart/${variantID}/${quantity}`,
             success: function (response) {
-                console.log(response.status);
+                alert(response.status)
             }
 
         });

@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix'=>'paypal'], function(){
+    // Route::get('/order/create',[\App\Http\Controllers\Front\PaypalPaymentController::class,'create']);
+    Route::post('/order/create',function(){
+        $data = [
+            'total'=>json_decode(request()->cookie('cart'))
+        ];
+        return response()->json(['data'=>$data]);
+    });
+    Route::post('/order/capture/',[\App\Http\Controllers\Front\PaypalPaymentController::class,'capture']);
+});

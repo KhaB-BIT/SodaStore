@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('payment_id')->nullable();
             $table->integer('admin_id');
-            $table->enum('payment_method',["cash","paypal"]);
+            $table->integer('customer_id');
+            $table->float('total');
+            $table->enum('payment_method',["CASH","PAYPAL"]);
+            $table->enum('status',["COMPLETED","PENDING"]);
             $table->rememberToken();
             $table->timestamps();
         });

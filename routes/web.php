@@ -13,6 +13,8 @@ use App\Http\Controllers\user\home_page;
 use App\Http\Controllers\user\shop_page;
 use App\Http\Controllers\user\login_page;
 use App\Models\ProductVariant;
+use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +39,8 @@ Route::prefix('/shop')->group(function(){
 Route::get('/lien-he', [contact_page::class,'index']);
 Route::get('/login',[login_page::class,'index']);
 
+//----------------------------- ADMIN ROUTE ---------------------------//
+
 Route::prefix('/admin')->group(function(){
     Route::get('/',[ProductController::class,'index'])->name('list_product');
 
@@ -45,6 +49,8 @@ Route::prefix('/admin')->group(function(){
 
 
     Route::get('/checkout',[CheckoutController::class,'index'])->name('list_checkout');
+    Route::post('/checkout/total',[CheckoutController::class,'total']);
+    Route::post('/checkout/completed/{customer_id}/{payment_id}',[CheckoutController::class,'completed']);
 
     
     Route::prefix('/product')->group(function(){
