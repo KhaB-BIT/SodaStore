@@ -46,8 +46,8 @@ class CheckoutController extends Controller
             'payment_id'=>$paymentID,
             'admin_id'=>1,
             'customer_id'=>$customerID,
-            'total'=>12000,
-            'payment_mothod' => 'PAYPAL',
+            'total'=>session()->pull('cart_total'),
+            'payment_method' => 'PAYPAL',
             'status'=>'COMPLETED'
         ])->id;
 
@@ -61,5 +61,10 @@ class CheckoutController extends Controller
                 'quantity'=>$item['quantity']
             ]);
         }
+    }
+    function clear(){
+        session()->forget('cart');
+        return redirect()->back();
+        
     }
 }

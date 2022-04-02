@@ -42,9 +42,9 @@ class SellingController extends Controller
                 }
                 if($check) $data[] = ["variant"=>$id, "quantity"=>$quantity];
                 session(['cart'=>$data]);
-                return response()->json(['status'=>'ADDED TO CARD']);
             }
             else session(["cart"=>[['variant'=>$id, 'quantity'=>$quantity]]]);
+            return response()->json(['status'=>'ADDED TO CART']);
         }
     }
 }

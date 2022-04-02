@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title','Thanh toán')
+@section('title','Checkout | SODA STORE')
 @section('content')
     @include('admin.checkout.checkout')
     @include('admin.checkout.js-fix')

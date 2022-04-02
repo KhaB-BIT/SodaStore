@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\admin\CheckoutController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\admin\InvoiceController;
+use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductVariantController;
 use App\Http\Controllers\admin\SellingController;
@@ -41,8 +43,12 @@ Route::get('/login',[login_page::class,'index']);
 
 //----------------------------- ADMIN ROUTE ---------------------------//
 
-Route::prefix('/admin')->group(function(){
-    Route::get('/',[ProductController::class,'index'])->name('list_product');
+Route::get('admin/login',[LoginController::class, 'index'])->name('admin_login');
+Route::post('admin/login',[LoginController::class,'process'])->name('admin_loginFunc');
+
+
+Route::prefix('/admin')->middleware('AdminPermission')->group(function(){
+    Route::get('/',[SellingController::class,'index'])->name('admin');
 
     Route::get('/selling',[SellingController::class,'index'])->name('list_selling');
     Route::get('/selling/addtocart/{id}/{quantity}/{mode?}',[SellingController::class,'addToCart'])->name('addTocart_selling');
@@ -51,6 +57,7 @@ Route::prefix('/admin')->group(function(){
     Route::get('/checkout',[CheckoutController::class,'index'])->name('list_checkout');
     Route::post('/checkout/total',[CheckoutController::class,'total']);
     Route::post('/checkout/completed/{customer_id}/{payment_id}',[CheckoutController::class,'completed']);
+    Route::get('/checkout/clear',[CheckoutController::class,'clear'])->name('clear_checkout');
 
     
     Route::prefix('/product')->group(function(){
@@ -80,5 +87,9 @@ Route::prefix('/admin')->group(function(){
         Route::post('/add',[CustomerController::class,'add'])->name('addfunc_customer');
         Route::delete('/delete/{id}',[CustomerController::class,'delete'])->name('delete_customer');
         Route::get('/search/{phone}',[CustomerController::class,'search'])->name('search_customer');
+    });
+
+    Route::prefix('/invoice')->group(function(){
+        Route::get('/',[InvoiceController::class,'view'])->name('list_invoice');
     });
 });
