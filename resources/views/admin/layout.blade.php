@@ -37,6 +37,7 @@
   </head>
 
   <body class="nav-md">
+
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -72,11 +73,26 @@
         {{-- PAGE CONTENT --}}
       </div>
     </div>
+    
+    <div id="loading" style="display: none; z-index: 1000000; font-size: 24px;">
+      <div class="loading-image-container">
+        PAYMENT IN PROCESS...
+      </div>
+    </div>
+
+    
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    {{-- <script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/vendor/bootstrap/js/popper.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script> --}}
 
     <!-- FastClick -->
     <script src="/vendor/fastclick/lib/fastclick.js"></script>

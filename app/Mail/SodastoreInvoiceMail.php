@@ -14,18 +14,17 @@ class SodastoreInvoiceMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $customer, $invoice, $invoiceDetail;
+    public $customer, $invoice;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Customer $customer, Transaction $invoice, TransactionDetail $invoiceDetail)
+    public function __construct(Customer $customer, Transaction $invoice)
     {
         $this->invoice = $invoice;
         $this->customer = $customer;
-        $this->invoiceDetail = $invoiceDetail;
     }
 
     /**

@@ -30,7 +30,7 @@ class CheckoutController extends Controller
         // session()->flush();
         // return session('cart');
     }
-    function total(){
+    function total($customerID){
         $data = session('cart');
         $total = 0;
         foreach($data as $item){
@@ -39,25 +39,29 @@ class CheckoutController extends Controller
         }
 
         if(session()->has('cart_total')) session()->forget('cart_total');
-        session(['cart_total'=>$total]);
+        session(['cart_pending'=>[
+            'customer_id' => $customerID,
+            'total' => $total
+        ]]);
 
         $total = round($total / 23000,2);
         return response()->json(['total'=>$total],200);
     }
-    function completed($customerID,$paymentID){
+    function completed($paymentID){
+        $cartPending = session()->pull('cart_pending');
         $itemTrans = Transaction::create([
             'payment_id'=>$paymentID,
             'admin_id'=>1,
-            'customer_id'=>$customerID,
-            'total'=>session()->pull('cart_total'),
-            'payment_method' => 'PAYPAL',
+            'customer_id'=>$cartPending['customer_id'],
+            'total'=> $cartPending['total'],
+            'payment_method' => $paymentID != "-"?'PAYPAL':"CASH",
             'status'=>'COMPLETED'
         ]);
 
         $data = session()->pull('cart');
         foreach($data as $item){
             $itemProduct = Product::find(ProductVariant::find($item['variant'])->product_id);
-            $itemTransactionDetail = TransactionDetail::create([
+            $itemTransactionDetail[] = TransactionDetail::create([
                 'transaction_id'=>$itemTrans->id,
                 'variant_id'=>$item['variant'],
                 'price'=>$itemProduct->price,
@@ -66,8 +70,9 @@ class CheckoutController extends Controller
             $itemVariant = ProductVariant::find($item['variant']);
             $itemVariant->quantity -= $item['quantity'];
             $itemVariant->save();
-            Mail::to(Customer::find($customerID)->email)->send(new SodastoreInvoiceMail(Customer::find($customerID),$itemTrans,$itemTransactionDetail));
         }
+        Mail::to(Customer::find($cartPending['customer_id'])->email)->send(new SodastoreInvoiceMail(Customer::find($cartPending['customer_id']),$itemTrans));
+
     }
     function clear(){
         session()->forget('cart');

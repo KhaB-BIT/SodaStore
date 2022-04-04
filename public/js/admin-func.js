@@ -16,11 +16,11 @@
         timeout: false,
         timeoutCountdown: 5000,
         onLoadEvent: true,
-        browser: [ 'animation-duration', '-webkit-animation-duration'],
-        overlay : false,
-        overlayClass : 'animsition-overlay-slide',
-        overlayParentElement : 'html',
-        transition: function(url){ window.location.href = url; }
+        browser: ['animation-duration', '-webkit-animation-duration'],
+        overlay: false,
+        overlayClass: 'animsition-overlay-slide',
+        overlayParentElement: 'html',
+        transition: function (url) { window.location.href = url; }
     });
 
     /*==================================================================
@@ -109,7 +109,7 @@
     $('.btn-num-product-down').on('click', function () {
         var numProduct = Number($(this).next().val());
         var idCart = $(this).next().attr('data-id');
-        if (numProduct > 0){
+        if (numProduct > 0) {
             $(this).next().val(changeCart(idCart, numProduct - 1, numProduct));
         };
     });
@@ -117,7 +117,7 @@
     $('.btn-num-product-up').on('click', function () {
         var numProduct = Number($(this).prev().val());
         var idCart = $(this).prev().attr('data-id');
-        $(this).prev().val(changeCart(idCart, numProduct + 1, numProduct));        
+        $(this).prev().val(changeCart(idCart, numProduct + 1, numProduct));
     });
 
     // $('#admin_cart_quantity').on('change',function(){
@@ -126,18 +126,18 @@
     //     changeCart(idCart, numProduct, numProduct);
     // })
 
-    function changeCart(variantID,quantity,old) {
+    function changeCart(variantID, quantity, old) {
         var anw = old;
-        var itemPrice = $('#admin_cart_price_'+variantID).attr('data-price');
+        var itemPrice = $('#admin_cart_price_' + variantID).attr('data-price');
         var invoiceTotal = $('#admin_invoice_total').attr('data-price');
         $.ajax({
             type: 'get',
             url: `/admin/selling/addtocart/${variantID}/${quantity}/1`,
-            success: function(response) {
-                document.getElementById('admin_cart_total_'+variantID).innerHTML = separator(itemPrice * quantity);
-                var newTotal = invoiceTotal - (anw*itemPrice) + (quantity*itemPrice);
+            success: function (response) {
+                document.getElementById('admin_cart_total_' + variantID).innerHTML = separator(itemPrice * quantity);
+                var newTotal = invoiceTotal - (anw * itemPrice) + (quantity * itemPrice);
                 document.getElementById('admin_invoice_total').innerHTML = separator(newTotal) + " VND";
-                $('#admin_invoice_total').attr("data-price",newTotal);
+                $('#admin_invoice_total').attr("data-price", newTotal);
             },
         });
         return quantity;
@@ -219,19 +219,20 @@
             url: `/admin/selling/addtocart/${variantID}/${quantity}`,
             success: function (response) {
                 alert(response.status)
+                
             }
 
         });
     });
 
-    //------------ SEARCH CUSTOMER ----------------//
-    $('#admin_customer_search').on('click',function(){
+    //------------------ SEARCH CUSTOMER ----------------//
+    $('#admin_customer_search').on('click', function () {
         var customerPhone = $(this).prev().val();
         $.ajax({
             type: 'get',
             url: `/admin/customer/search/${customerPhone}`,
-            success: function(response){
-                response.data.forEach(function($item){
+            success: function (response) {
+                response.data.forEach(function ($item) {
                     $('#admin_customer_id').val($item.id)
                     $('#admin_customer_name').val($item.name)
                     $('#admin_customer_phone').val($item.phone)
@@ -240,9 +241,43 @@
 
                 })
             },
-            error: function(){
+            error: function () {
                 alert('fail')
             }
         })
+    })
+
+    //----------------- PAYMENT IN CASH ----------------//
+    $('#payment_in_cash').on('click', function () {
+        if($('#admin_customer_id').val() == "") alert('Please enter customer id');
+        else{
+            $('#loading').show();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var ajaxFunc = $.ajax({
+                method: 'POST',
+                url: '/admin/checkout/total/' + $('#admin_customer_id').val(),
+                dataType: "json",
+                async: !1,
+                error: function() {
+                    alert("Error occured, please try again!!!")
+                }
+            });
+            $.ajax({
+                method: 'POST',
+                url: '/admin/checkout/completed/-',
+                success: function(){
+                    alert('Payment success');
+                    location.reload();
+                },
+                error: function (e) {
+                    $('#loading').hide();
+                    alert('Error occured, please try again!!!');
+                }
+            })
+        }
     })
 })(jQuery);

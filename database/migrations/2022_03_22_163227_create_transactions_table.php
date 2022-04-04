@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('payment_id')->nullable();
             $table->integer('admin_id');
             $table->integer('customer_id');
-            $table->float('total');
+            $table->decimal('total',10,3);
             $table->enum('payment_method',["CASH","PAYPAL"]);
             $table->enum('status',["COMPLETED","PENDING"]);
             $table->rememberToken();
             $table->timestamps();
         });
+
     }
 
     /**

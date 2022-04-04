@@ -42,26 +42,20 @@
                     <div class="bor8 bg0 m-b-12" style="display: flex">
                         <input class="stext-111 cl8 plh3 size-111 p-lr-15" id="admin_customer_email" type="text" name="email" placeholder="Email" readonly>
                     </div>
-
-                    <span class="stext-112 cl8">
-                        PAYMENT METHOD
-                    </span>
-
-                    <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                        <select class="js-select2" name="time">
-                            <option>Paypal</option>
-                            <option>Cash on delivery</option>
-                        </select>
-                        <div class="dropDownSelect2"></div>
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
                     </div>
-                        
                 </div>
             </div>
         </div>
 
-        <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" type="submit">
-            Xử lý thanh toán
-        </button>
-        <div id="paypal-button"></div>
+        @if (session()->has('cart'))
+            <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" id="payment_in_cash" type="button">
+                Payment in cash
+            </button>
+            <div id="paypal-button" style="text-align: center; margin-top: 10px"></div>
+        @else
+            <div style="text-align: center; margin-top: 30px;"><b>CART IS EMPTY</b></div>
+        @endif
     </div>
 </div>

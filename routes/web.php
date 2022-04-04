@@ -64,8 +64,8 @@ Route::prefix('/admin')->middleware('AdminPermission')->group(function(){
 
 
     Route::get('/checkout',[CheckoutController::class,'index'])->name('list_checkout');
-    Route::post('/checkout/total',[CheckoutController::class,'total']);
-    Route::post('/checkout/completed/{customer_id}/{payment_id}',[CheckoutController::class,'completed']);
+    Route::post('/checkout/total/{customer_id}',[CheckoutController::class,'total']);
+    Route::post('/checkout/completed/{payment_id}',[CheckoutController::class,'completed']);
     Route::get('/checkout/clear',[CheckoutController::class,'clear'])->name('clear_checkout');
 
     

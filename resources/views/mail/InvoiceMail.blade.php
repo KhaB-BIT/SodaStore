@@ -1,7 +1,7 @@
 @component('mail::message')
 # SODA STORE
 
-Thank you {{$customer->name}} for your purchase. Your invoice ID is {{$invoice->id}}. You can click bellow button to see more item.
+Thank you <b>{{$customer->name}}</b> for your purchase. Your invoice ID is <b>{{$invoice->id}}</b>. You can click bellow button to see more item.
 
 @component('mail::button', ['url' => route('homepage')])
 Shop more
