@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SodastoreInvoiceMail;
+use App\Models\Customer;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -42,29 +45,32 @@ class CheckoutController extends Controller
         return response()->json(['total'=>$total],200);
     }
     function completed($customerID,$paymentID){
-        $transID = Transaction::create([
+        $itemTrans = Transaction::create([
             'payment_id'=>$paymentID,
             'admin_id'=>1,
             'customer_id'=>$customerID,
             'total'=>session()->pull('cart_total'),
             'payment_method' => 'PAYPAL',
             'status'=>'COMPLETED'
-        ])->id;
+        ]);
 
         $data = session()->pull('cart');
         foreach($data as $item){
             $itemProduct = Product::find(ProductVariant::find($item['variant'])->product_id);
-            TransactionDetail::create([
-                'transaction_id'=>$transID,
+            $itemTransactionDetail = TransactionDetail::create([
+                'transaction_id'=>$itemTrans->id,
                 'variant_id'=>$item['variant'],
                 'price'=>$itemProduct->price,
                 'quantity'=>$item['quantity']
             ]);
+            $itemVariant = ProductVariant::find($item['variant']);
+            $itemVariant->quantity -= $item['quantity'];
+            $itemVariant->save();
+            Mail::to(Customer::find($customerID)->email)->send(new SodastoreInvoiceMail(Customer::find($customerID),$itemTrans,$itemTransactionDetail));
         }
     }
     function clear(){
         session()->forget('cart');
         return redirect()->back();
-        
     }
 }

@@ -14,9 +14,11 @@ use App\Http\Controllers\user\contact_page;
 use App\Http\Controllers\user\home_page;
 use App\Http\Controllers\user\shop_page;
 use App\Http\Controllers\user\login_page;
+use App\Mail\SodastoreInvoiceMail;
 use App\Models\ProductVariant;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [home_page::class,'index']);
+Route::get('/', [home_page::class,'index'])->name('homepage');
 Route::get('/ve-chung-toi', [about_page::class,'index']);
 Route::get('/blog', [blog_page::class,'index']);
 Route::get('/thanh-toan', [checkout_page::class,'index']);
@@ -40,6 +42,11 @@ Route::prefix('/shop')->group(function(){
 });
 Route::get('/lien-he', [contact_page::class,'index']);
 Route::get('/login',[login_page::class,'index']);
+
+// Route::get('/mail',function(){
+//     // Mail::to('bi.nv2@oude.edu.vn')->send(new SodastoreInvoiceMail());
+//     return new SodastoreInvoiceMail();
+// });
 
 //----------------------------- ADMIN ROUTE ---------------------------//
 
