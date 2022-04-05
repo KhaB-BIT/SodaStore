@@ -1274,13 +1274,13 @@
 }
 
 button.mfp-arrow-right {
-  background-image: url("/images/icon-next.png?f2c41fc445006bf65f50a9ee2a952840");
+  background-image: url("images/icon-next.png?f2c41fc445006bf65f50a9ee2a952840");
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 button.mfp-arrow-left {
-  background-image: url("/images/icon-prev.png?91df0250d15475c8602c9e79fa0dd9f0");
+  background-image: url("images/icon-prev.png?91df0250d15475c8602c9e79fa0dd9f0");
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -1293,7 +1293,7 @@ button.mfp-close {
   right: 0;
   top: 0;
   color: transparent !important;
-  background-image: url("/images/icon-close.png?4514e3c6e1bf5bc78acadbb6a8350bf4");
+  background-image: url("images/icon-close.png?4514e3c6e1bf5bc78acadbb6a8350bf4");
   background-position: center center;
   background-repeat: no-repeat;
   cursor: pointer !important;

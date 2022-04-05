@@ -7,12 +7,12 @@
 				</h4>
 				<div class="bor8 m-b-20 how-pos4-parent">
 					<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="email" name="email" placeholder="Email" required>
-					<img class="how-pos4 pointer-none" src="/images/icons/icon-user.png" alt="ICON">
+					<img class="how-pos4 pointer-none" src="{{url('/images/icons/icon-user.png')}}" alt="ICON">
 				</div>
 
 				<div class="bor8 m-b-20 how-pos4-parent">
 					<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="password" placeholder="Password" required>
-					<img class="how-pos4 pointer-none" src="/images/icons/icon-key.png" alt="ICON">
+					<img class="how-pos4 pointer-none" src="{{url('/images/icons/icon-key.png')}}" alt="ICON">
 				</div>
 				@csrf
 				<input type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" value="LOGIN" />
