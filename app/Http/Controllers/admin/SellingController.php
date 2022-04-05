@@ -3,15 +3,22 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use Illuminate\Http\Request;
 
 class SellingController extends Controller
 {
-    function index(){
-        $data = Product::all();
-        return view('admin.selling.view.index', compact('data'));
+    function index($id = null){
+        $data = null;
+        if(request()->search_product == null){
+            if($id == null) $data = Product::all();
+            else if(Category::find($id) != null) $data = Product::whereRaw('category_id = ?',$id)->get();
+        }
+        else $data = Product::whereRaw('name like ?','%'.request()->search_product.'%')->get();
+        $categories = Category::all();
+        return view('admin.selling.view.index', compact('data','categories','id'));
         // session()->flush();
         // return session()->all();
     }

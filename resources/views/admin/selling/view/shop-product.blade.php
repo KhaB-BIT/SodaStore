@@ -41,6 +41,6 @@
         </div>
 
         {{-- see more --}}
-        @include('admin.selling.view.shop-product-loadmore')
+        {{-- @include('admin.selling.view.shop-product-loadmore') --}}
     </div>
 </div>

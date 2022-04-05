@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CheckoutController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\admin\InvoiceController;
@@ -59,7 +60,7 @@ Route::get('admin/logout',[LoginController::class,'logout'])->name('admin_logout
 Route::prefix('/admin')->middleware('AdminPermission')->group(function(){
     Route::get('/',[SellingController::class,'index'])->name('admin');
 
-    Route::get('/selling',[SellingController::class,'index'])->name('list_selling');
+    Route::get('/selling/{id?}',[SellingController::class,'index'])->name('list_selling');
     Route::get('/selling/addtocart/{id}/{quantity}/{mode?}',[SellingController::class,'addToCart'])->name('addTocart_selling');
 
 
@@ -76,6 +77,15 @@ Route::prefix('/admin')->middleware('AdminPermission')->group(function(){
         Route::get('/add',[ProductController::class,'add'])->name('add_product');
         Route::post('/add',[ProductController::class,'add'])->name('addfunc_product');
         Route::delete('/delete/{id}',[ProductController::class,'delete'])->name('delete_product');
+    });
+
+    Route::prefix('/category')->group(function(){
+        Route::get('/',[CategoryController::class,'index'])->name('list_category');
+        Route::get('/detail/{id}',[CategoryController::class,'view'])->name('item_category');
+        Route::put('/detail/{id}',[CategoryController::class,'upload'])->name('update_category');
+        Route::get('/add',[CategoryController::class,'add'])->name('add_category');
+        Route::post('/add',[CategoryController::class,'add'])->name('addfunc_category');
+        Route::delete('/delete/{id}',[CategoryController::class,'delete'])->name('delete_category');
     });
 
     Route::prefix('/variant')->group(function(){
