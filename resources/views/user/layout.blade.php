@@ -13,6 +13,6 @@
     @include('user.cart')
     @yield('content')
     @include('user.footer')
-    <script src="js/app.js"></script>
+    <script src="{{url('/js/app.js')}}"></script>
 </body>
 </html>
