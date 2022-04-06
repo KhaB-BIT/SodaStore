@@ -3,7 +3,7 @@
   <div class="">
     <div class="page-title" style="margin-bottom: 50px">
       <div class="title_left">
-        <h3>Tables <small>Some examples to get you started</small></h3>
+        <h3>Selling <small>List of product</small></h3>
       </div>
 
       <div class="title_right">

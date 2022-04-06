@@ -9,8 +9,8 @@
         <td class=" ">{{$item->name}}</td>
         <td class=" ">{{$item->desc}}</td>
         <td class=" ">{{$item->short_desc}}</td>
-        <td class="">{{$item->image}}</td>
-        <td class=""><b>{{$item->price}}</b></td>
+        <td class=""><img src="{{$item->image}}" alt="#photo_{{$item->id}}" style="height: 150px"></td>
+        <td class=""><b>{{number_format($item->price)}}</b></td>
         <td class="">
             <form action="{{route('delete_product',['id'=>$item->id])}}" method="POST">
                 <button class="btn btn-danger" type="submit">Delete</button>

@@ -232,17 +232,16 @@
             type: 'get',
             url: `/admin/customer/search/${customerPhone}`,
             success: function (response) {
-                response.data.forEach(function ($item) {
+                if(response.data.length == 0) alert('Not found. Please try again.');
+                else response.data.forEach(function ($item) {
                     $('#admin_customer_id').val($item.id)
                     $('#admin_customer_name').val($item.name)
                     $('#admin_customer_phone').val($item.phone)
                     $('#admin_customer_email').val($item.email)
-
-
                 })
             },
             error: function () {
-                alert('fail')
+                alert('Fail')
             }
         })
     })

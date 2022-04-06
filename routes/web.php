@@ -93,7 +93,7 @@ Route::prefix('/admin')->middleware('AdminPermission')->group(function(){
         Route::get('/view/{product_id}/{variant_id}',[ProductVariantController::class,'view'])->where(['id'=>'[0-9]+', 'variant_id'=>'[0-9]+'])->name('item_variant');
         Route::get('/add/{id}',[ProductVariantController::class,'add'])->where(['id'=>'[0-9]+'])->name('add_variant');
         Route::post('/add/{id}',[ProductVariantController::class,'add'])->where(['id'=>'[0-9]+'])->name('addfunc_variant');
-        Route::put('/upload/{id}')->where(['id'=>'[0-9]+'])->name('update_variant');
+        Route::put('/upload/{id}',[ProductVariantController::class,'upload'])->where(['id'=>'[0-9]+'])->name('update_variant');
         Route::delete('/delete/{id}',[ProductVariantController::class,'delete'])->where(['id'=>'[0-9]+'])->name('delete_variant');
 
     });

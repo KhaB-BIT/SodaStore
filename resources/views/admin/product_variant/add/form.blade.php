@@ -3,18 +3,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Form Elements</h3>
-      </div>
-
-      <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div>
-        </div>
+        <h3>Product Variant <small>Item</small></h3>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -47,13 +36,13 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Color</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input name='color' type="text" class="form-control" placeholder="Color" value="{{isset($data)?$data->color:""}}">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID</label>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Quantity</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <input name='quantity' type="number" class="form-control" placeholder="Quantity" value="{{isset($data)?$data->quantity:""}}">
                 </div>

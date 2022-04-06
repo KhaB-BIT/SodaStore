@@ -47,13 +47,11 @@ class ProductVariantController extends Controller
     }
     function upload($id){
         $uploadItem = ProductVariant::find($id);
-            $uploadItem->email = request()->email;
-            $uploadItem->name = request()->name;
-            $uploadItem->gender = request()->gender;
-            $uploadItem->address = request()->address;
-            $uploadItem->phone = request()->phone;
+            $uploadItem->size = request()->size;
+            $uploadItem->color = request()->color;
+            $uploadItem->quantity = request()->quantity;
             $uploadItem->save();
-            return redirect(route('item_variant',['id'=>$id]));
+            return redirect()->back();
     }
     function delete($id){
         ProductVariant::find($id)->delete();
