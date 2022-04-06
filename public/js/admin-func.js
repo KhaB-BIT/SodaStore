@@ -263,7 +263,7 @@
                 dataType: "json",
                 async: !1,
                 error: function() {
-                    alert("Error occured, please try again!!!")
+                    alert("Error occured Total, please try again!!!")
                 }
             });
             $.ajax({
@@ -275,7 +275,7 @@
                 },
                 error: function (e) {
                     $('#loading').hide();
-                    alert('Error occured, please try again!!!');
+                    alert('Error occured Completed, please try again!!!');
                 }
             })
         }
