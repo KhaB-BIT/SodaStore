@@ -25,11 +25,12 @@
 							<div class="wrap-table-shopping-cart">
 								<table class="table-shopping-cart">
 									<tr class="table_head">
-										<th class="column-1">Sản phẩm</th>
+										<th class="column-1">Product</th>
 										<th class="column-2"></th>
-										<th class="column-3">Giá</th>
-										<th class="column-4">Số lượng</th>
-										<th class="column-5">Tổng</th>
+										<th class="column-3">Price</th>
+										<th class="column-4" style="text-align: center">Quantity</th>
+										<th class="column-5">Total</th>
+										<th class="column-6"></th>
 									</tr>
 
 									{{-- items of your card --}}

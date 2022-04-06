@@ -12,7 +12,7 @@
         </td>
         <td class="column-3" id="admin_cart_price_{{$item['variant']->id}}" data-price="{{$item['product']->price}}">{{number_format($item['product']->price)}}</td>
         <td class="column-4">
-            <div class="wrap-num-product flex-w m-l-auto m-r-0">
+            <div class="wrap-num-product flex-w m-l-auto m-r-0" style="display: relative">
                 <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
                     <i class="fs-16 zmdi zmdi-minus" id = "admin_cart_quantity_minus"></i>
                 </div>
@@ -22,6 +22,9 @@
                 <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                     <i class="fs-16 zmdi zmdi-plus"></i>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 10px">
+                <a href="{{route('delete_item_checkout', $item['variant']->id)}}">Delete this item</a>
             </div>
         </td>
         <td class="column-5" id="admin_cart_total_{{$item['variant']->id}}">{{number_format($item['quantity']*$item['product']->price)}}</td>

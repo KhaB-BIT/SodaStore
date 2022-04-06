@@ -171,13 +171,14 @@
                 </div>`;
 
                 const boxColor = document.getElementById('modal_product_color1');
-                boxColor.innerHTML = "<option selected disabled>Chọn màu sắc</option>";
+                boxColor.innerHTML = "<option selected disabled>Choose color</option>";
                 const boxSize = document.getElementById('modal_product_size1');
-                boxSize.innerHTML = `<option selected disabled>Chọn kích thước</option>
+                boxSize.innerHTML = `<option selected disabled>Choose size</option>
                 <option value="S">Size S</option>
                 <option value="M">Size M</option>
                 <option value="L">Size L</option>
                 <option value="XL">Size XL</option>`
+                $('#modal_product_quantity1').val(1);
 
 
                 // Choose Size and Color

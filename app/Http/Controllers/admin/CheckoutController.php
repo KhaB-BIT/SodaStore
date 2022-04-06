@@ -30,6 +30,19 @@ class CheckoutController extends Controller
         // session()->flush();
         // return session('cart');
     }
+    function deleteItem($variant_id){
+        if(session()->has('cart')){
+            $data = session()->pull('cart');
+            foreach($data as $key => $item){
+                if($item['variant'] == $variant_id){
+                    array_splice($data,$key,1);
+                    break;
+                }
+            }
+            session(['cart'=>$data]);
+        }
+        return redirect()->back();
+    }
     function total($customerID){
         $data = session('cart');
         $total = 0;
