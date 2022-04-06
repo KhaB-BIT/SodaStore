@@ -90,7 +90,6 @@ Route::prefix('/admin')->middleware('AdminPermission')->group(function(){
     });
 
     Route::prefix('/variant')->group(function(){
-        Route::get('/view/{product_id}',[ProductVariantController::class,'index'])->where(['id'=>'[0-9]+'])->name('list_variant');
         Route::get('/view/{product_id}/{variant_id}',[ProductVariantController::class,'view'])->where(['id'=>'[0-9]+', 'variant_id'=>'[0-9]+'])->name('item_variant');
         Route::get('/add/{id}',[ProductVariantController::class,'add'])->where(['id'=>'[0-9]+'])->name('add_variant');
         Route::post('/add/{id}',[ProductVariantController::class,'add'])->where(['id'=>'[0-9]+'])->name('addfunc_variant');

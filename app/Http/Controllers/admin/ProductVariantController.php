@@ -11,16 +11,12 @@ use function PHPUnit\Framework\isNull;
 
 class ProductVariantController extends Controller
 {
-    function index($product_id){
-        $data = ProductVariant::whereRaw('product_id = ?',$product_id)->get();
-        return view('admin.product_variant.view.index', compact('data','product_id'));
-    }
     function view($product_id,$variant_id){
         $data = ProductVariant::find($variant_id);
         if($data != []){
             return view('admin.product_variant.add.index',compact('data'));
         }
-        else return redirect(route('list_variant'));
+        else return redirect()->back();
     }
     function add($id){
         if(Product::find($id) != null){
@@ -43,7 +39,7 @@ class ProductVariantController extends Controller
                 return redirect(route('add_variant',$id));
             }
         }
-        else return redirect('list_variant');
+        else return redirect()->back();
     }
     function upload($id){
         $uploadItem = ProductVariant::find($id);

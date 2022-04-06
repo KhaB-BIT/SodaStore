@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductVariant;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -17,8 +18,9 @@ class ProductController extends Controller
     function view($id){
         $data = Product::find($id);
         $categories = Category::all();
+        $variant = ProductVariant::whereRaw('product_id = ?',$id)->get();
         if($data != []){
-            return view('admin.product.add.index',compact('data','categories'));
+            return view('admin.product.add.index',compact('data','categories','variant'));
         }
         else return redirect(route('list_product'));
     }

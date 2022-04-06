@@ -44,7 +44,7 @@
                 </thead>
 
                 <tbody>
-                  @include('admin.product_variant.view.product_item')
+                  @include('admin.product_variant.view.product_variant_item')
                 </tbody>
               </table>
             </div>
