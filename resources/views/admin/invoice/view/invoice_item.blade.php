@@ -11,14 +11,6 @@
         <td class=" ">{{$item->total}}</td>
         <td class="">{{$item->payment_method}}</td>
         <td class=""><b>{{$item->status}}</b></td>
-        {{-- <td class="">
-            <form action="{{route('delete_product',['id'=>$item->id])}}" method="POST">
-                <button class="btn btn-danger" type="submit">Delete</button>
-                @method('delete')
-                @csrf
-            </form>
-        </td>
-        <td class="last"><a class="btn btn-primary" href="{{route('item_product',['id'=>$item->id])}}">View</a>
-        </td> --}}
+        <td class=""><a class="btn btn-success" href="{{route('detail_invoice',$item->id)}}">Detail</a></td>
     </tr>
 @endforeach

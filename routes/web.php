@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductVariantController;
 use App\Http\Controllers\admin\SellingController;
+use App\Http\Controllers\admin\TransactionDetailController;
 use App\Http\Controllers\user\about_page;
 use App\Http\Controllers\user\blog_page;
 use App\Http\Controllers\user\checkout_page;
@@ -110,5 +111,6 @@ Route::prefix('/admin')->middleware('AdminPermission')->group(function(){
 
     Route::prefix('/invoice')->group(function(){
         Route::get('/',[InvoiceController::class,'view'])->name('list_invoice');
+        Route::get('/detail/{id}',[TransactionDetailController::class, 'index'])->name('detail_invoice');
     });
 });

@@ -3,7 +3,7 @@
   <div class="">
     <div class="page-title" style="margin-bottom: 50px">
       <div class="title_left">
-        <h3>Invoice <small>Management</small></h3>
+        <h3>Invoice Detail <small>Management</small></h3>
       </div>
     </div>
   
@@ -12,7 +12,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <div style="font-size: 21px;"><b>Invoice</b> <span>table</span></div>
+            <div style="font-size: 21px;"><b>Item</b> <span>of Invoice {{$id}}</span></div>
             <div class="clearfix"></div>
           </div>
 
@@ -25,18 +25,15 @@
                       <input type="checkbox" id="check-all" class="flat">
                     </th>
                     <th class="column-title">ID </th>
-                    <th class="column-title">Payment ID</th>
-                    <th class="column-title">Admin ID</th>
-                    <th class="column-title">Customer ID</th>
-                    <th class="column-title">Total</th>
-                    <th class="column-title">Payment method</th>
-                    <th class="column-title">Status</th>
-                    <th class="column-title"></th>
+                    <th class="column-title">Invoice ID</th>
+                    <th class="column-title">Product Variant ID</th>
+                    <th class="column-title">Price ID</th>
+                    <th class="column-title">Quantity</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  @include('admin.invoice.view.invoice_item')
+                  @include('admin.invoice_detail.invoice_item')
                 </tbody>
               </table>
             </div>
