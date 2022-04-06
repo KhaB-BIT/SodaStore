@@ -4,6 +4,7 @@
     <div class="page-title">
       <div class="title_left">
         <h3>Product Variant <small>Item</small></h3>
+        <a class="btn btn-danger" href="{{route('item_product',$product_id)}}" style="float: left; margin-bottom: 20px;"><span><i class="fa fa-arrow-left" style="margin-right: 10px"></i></span>Back to product</a>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -12,11 +13,11 @@
         <div class="x_panel">
           <div class="x_content">
             <br />
-            <form class="form-horizontal form-label-left" method="POST" action="{{isset($data)?route('update_variant',$data->id):route('addfunc_variant',$id)}}">
+            <form class="form-horizontal form-label-left" method="POST" action="{{isset($data)?route('update_variant',$data->id):route('addfunc_variant',$product_id)}}">
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID</label>
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <input name='product_id' type="number" class="form-control" placeholder="Product ID" value="{{isset($data)?$data->product_id:$id}}" readonly>
+                  <input name='product_id' type="number" class="form-control" placeholder="Product ID" value="{{isset($data)?$data->product_id:$product_id}}" readonly>
                 </div>
               </div>
               <div class="form-group">

@@ -14,14 +14,14 @@ class ProductVariantController extends Controller
     function view($product_id,$variant_id){
         $data = ProductVariant::find($variant_id);
         if($data != []){
-            return view('admin.product_variant.add.index',compact('data'));
+            return view('admin.product_variant.add.index',compact('data','product_id'));
         }
         else return redirect()->back();
     }
-    function add($id){
-        if(Product::find($id) != null){
+    function add($product_id){
+        if(Product::find($product_id) != null){
             if(request()->isMethod('GET')){
-                return view('admin.product_variant.add.index',compact('id'));
+                return view('admin.product_variant.add.index',compact('product_id'));
             }else{
                 $checkData = ProductVariant::whereRaw("color = :color AND size = :size AND product_id = :product_id",[
                     'color'=>request()->color,
@@ -36,7 +36,7 @@ class ProductVariantController extends Controller
                         'quantity'=>request()->quantity,
                     ]);                    
                 }
-                return redirect(route('add_variant',$id));
+                return redirect(route('add_variant',$product_id));
             }
         }
         else return redirect()->back();
